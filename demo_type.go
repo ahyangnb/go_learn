@@ -93,6 +93,8 @@ func sliceDemo() {
 	fmt.Println(s2)
 	fmt.Println(s3)
 
+	fmt.Println("=============")
+
 	// 删除下标为2的值
 	a2 := []int{6, 1, 2}
 	fmt.Println(a1)
