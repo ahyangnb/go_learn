@@ -13,7 +13,7 @@ func day02() {
 	fmt.Print("y=", y)
 }
 
-func fmtTest() {
+func formatTest() {
 	var n = 100
 	// 查看类型 T
 	fmt.Printf("类型::%T\n", n)

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	testFun()
+	wordTest()
 	////第一个参数是接口名，第二个参数 http handle func
 	//http.HandleFunc("/h1", h1)
 	//http.HandleFunc("/test", testHandle)
