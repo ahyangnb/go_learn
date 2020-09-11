@@ -30,5 +30,12 @@ func fmtTest() {
 	c1 := '1'
 	c2 := 'h'
 	c3 := '哈'
-	fmt.Printf("字符::%v %v %v", c1, c2, c3)
+	fmt.Printf("字符::%v %v %v\n", c1, c2, c3)
+
+	// 数组初始化
+	var b1 [3]bool
+	// 数组赋值
+	b1 = [3]bool{false, true, true}
+	// 打印类型[数组长度是类型的一部分]
+	fmt.Printf("%T\n", b1)
 }
