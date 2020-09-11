@@ -83,3 +83,19 @@ func fmtTest() {
 		}
 	}
 }
+
+func sliceDemo() {
+	a1 := [...]int{2, 4, 5, 9, 2}
+	s1 := a1[1:3] //从1切到3但不包含3
+	s2 := a1[1:]  //从1切到最后
+	s3 := a1[:3]  //从最开始切到3
+	fmt.Println(s1)
+	fmt.Println(s2)
+	fmt.Println(s3)
+
+	// 删除下标为2的值
+	a2 := []int{6, 1, 2}
+	fmt.Println(a1)
+	a2 = append(a2[:1], a2[2:]...)
+	fmt.Println(a1)
+}

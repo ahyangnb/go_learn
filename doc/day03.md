@@ -80,11 +80,53 @@ for i := 0; i < len(d4); i++ {
 }
 ```
 
+# 切片
 
+完整：https://www.liwenzhou.com/posts/Go/06_slice/
 
+```go
+a1 := [...]int{2, 4, 5, 9, 2}
+s1 := a1[1:3] //从1切到3但不包含3
+s2 := a1[1:]  //从1切到最后
+s3 := a1[:3]  //从最开始切到3
+fmt.Println(s1)
+fmt.Println(s2)
+fmt.Println(s3)
+```
 
+切片的容量为切片开始位置到数组的长度，
 
+##### 本质
 
+切片就是一个框，框住了一块连续内存。
+
+切片属于引用类型，真正的数据其实都是保存在底层数组里的。
+
+##### 判断
+
+要判断一个切片是否为空需要用len(s) == 0来判断长度是否等于空，不应该使用s == nil来判断。
+
+### 切片内部逻辑
+
+![image-20200911115418624](/Users/q1/Library/Application Support/typora-user-images/image-20200911115418624.png)
+
+### 切片中删除数值
+
+删除下标为2的值
+
+```go
+a2 := []int{6, 1, 2}
+fmt.Println(a1)
+a2 = append(a2[:1], a2[2:]...)
+fmt.Println(a1)
+```
+
+打印
+
+```
+[6 1 2]
+[6 2]
+```
 
 
 
