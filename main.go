@@ -16,8 +16,8 @@ func main() {
 	fmt.Println("===================")
 	fmt.Println("welcome to my serve")
 	fmt.Println("===================")
-	http.ListenAndServe("42.51.67.29:8081", nil)
-	//http.ListenAndServe("127.0.0.1:8081", nil)
+	//http.ListenAndServe("42.51.67.29:8081", nil)
+	http.ListenAndServe("127.0.0.1:8081", nil)
 }
 
 type Data struct {
