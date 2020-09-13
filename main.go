@@ -13,7 +13,10 @@ func main() {
 	http.HandleFunc("/h1", h1)
 	http.HandleFunc("/test", testHandle)
 	//服务器要监听的主机地址和端口号
-	http.ListenAndServe("42.51.67.29:8888", nil)
+	fmt.Println("===================")
+	fmt.Println("welcome to my serve")
+	fmt.Println("===================")
+	http.ListenAndServe("42.51.67.29:8081", nil)
 	//http.ListenAndServe("127.0.0.1:8081", nil)
 }
 
