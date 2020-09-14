@@ -47,9 +47,10 @@ func h1(rw http.ResponseWriter, req *http.Request) {
 	ret.Data = append(ret.Data, data)
 	retJson, _ := json.Marshal(ret)
 	rw.Header().Set("Content-Type", "application/json")
-	io.WriteString(rw, string(retJson))
+	_, e := io.WriteString(rw, string(retJson))
+	fmt.Println(e)
 }
 
 func testHandle(rw http.ResponseWriter, req *http.Request) {
-	fmt.Fprint(rw, "进入到d 测试的接口了")
+	fmt.Println(rw, "进入到d 测试的接口了")
 }
