@@ -3,11 +3,15 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"go_learn/a"
+	"go_learn/a/b"
 	"io"
 	"net/http"
 )
 
 func main() {
+	b.TestB()
+	a.TestA()
 	//demoDefer()
 	//第一个参数是接口名，第二个参数 http handle func
 	http.HandleFunc("/h1", h1)
@@ -16,8 +20,8 @@ func main() {
 	fmt.Println("===================")
 	fmt.Println("welcome to my serve")
 	fmt.Println("===================")
-	//http.ListenAndServe("42.51.67.29:8081", nil)
-	http.ListenAndServe("42.51.67.29:3389", nil)
+	//http.ListenAndServe("42.51.67.29:3389", nil)
+	http.ListenAndServe("127.0.0.1:3389", nil)
 }
 
 type Data struct {
@@ -37,7 +41,6 @@ func h1(rw http.ResponseWriter, req *http.Request) {
 
 	ret := new(Ret)
 	id := req.FormValue("id")
-	//id := req.PostFormValue('id')
 
 	ret.Code = 0
 	ret.Param = id
