@@ -1,4 +1,4 @@
-package main
+package bean
 
 type BaseJsonBean struct {
 	Code    int         `json:"code"`

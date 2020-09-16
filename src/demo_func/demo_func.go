@@ -1,4 +1,4 @@
-package main
+package demo_func
 
 import "fmt"
 
@@ -22,13 +22,13 @@ func numD() (int, string) {
 	return 100, "哈哈哈"
 }
 
-func testFun() {
+func TestFun() {
 	a := numA(1, 2)
 	b := numB()
 	str, _, v3 := numC(1, 6, 8, "哈哈")
 	n1, n2 := numD()
 	fmt.Println(a)
 	fmt.Println(b)
-	fmt.Printf("str::%v,,v2::%v,,v3::%v\n", str, "测试下划线", v3)
+	fmt.Printf("demo_str::%v,,v2::%v,,v3::%v\n", str, "测试下划线", v3)
 	fmt.Printf("n1::%v,,n2::%v\n", n1, n2)
 }
