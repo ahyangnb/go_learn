@@ -276,6 +276,24 @@ fmt.Println(v)
 fmt.Printf("类型为：%T",v)
 ```
 
+# 异常处理
+程序异常抛出: `panic`
+处理异常: `recover`
+```go
+	// 刚刚打开数据库连接
+	defer func() {
+		e := recover()
+		fmt.Printf("发现错误::%v\n", e)
+		fmt.Println("释放数据库连接...")
+	}()
+	panic("出现严重的错误")
+```
+### 注意事项
+1. recover()必须搭配defer使用；
+
+2. defer一定要在可能引发panic的语句之前定义；
+
+
 
 
 
