@@ -101,3 +101,34 @@ func sliceDemo() {
 	a2 = append(a2[:1], a2[2:]...)
 	fmt.Println(a1)
 }
+
+// 类型别名和自定义类型
+type myInt int         // 自定义类型
+type myString = string // 类型别名
+
+func MyType() {
+	var i myInt
+	i = 1
+	fmt.Println(i)
+
+	var s myString
+	s = "test"
+	fmt.Println(s)
+
+	// rune就是官方帮我们写好的类型别名
+	var r rune
+	r = 2
+	fmt.Println(r)
+}
+
+// 结构体
+type Person struct {
+	age  int
+	name string
+}
+
+func StructDemo() {
+	var p Person
+	p.name = "q1"
+	p.age = 19
+}
