@@ -3,23 +3,22 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"go_learn/src/demo_error"
 	"go_learn/src/type_def"
 	"io"
 	"net/http"
 )
 
 func main() {
-	demo_error.ErrorHandle()
+	//demo_error.ErrorHandle()
 	////第一个参数是接口名，第二个参数 http handle demo_func
-	//http.HandleFunc("/h1", h1)
-	//http.HandleFunc("/test", testHandle)
-	////服务器要监听的主机地址和端口号
-	//fmt.Println("===================")
-	//fmt.Println("welcome to my serve")
-	//fmt.Println("===================")
-	////http.ListenAndServe("42.51.67.29:3389", nil)
-	//http.ListenAndServe("127.0.0.1:3389", nil)
+	http.HandleFunc("/h1", h1)
+	http.HandleFunc("/test", testHandle)
+	//服务器要监听的主机地址和端口号
+	fmt.Println("===================")
+	fmt.Println("welcome to my serve")
+	fmt.Println("===================")
+	//http.ListenAndServe("42.51.67.29:3389", nil)
+	http.ListenAndServe("127.0.0.1:3389", nil)
 }
 
 func h1(rw http.ResponseWriter, req *http.Request) {
