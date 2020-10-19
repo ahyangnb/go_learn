@@ -217,10 +217,16 @@ func GobTest() {
 }
 
 // 时间 https://www.liwenzhou.com/posts/Go/go_time/
-func TimeTest() {
+func TimeTest() bool {
 	now := time.Now()
 	fmt.Printf("current time:%v\n", now)
 
 	minute := now.Minute()
-	fmt.Printf("%v", minute)
+	fmt.Printf("%v \n", minute)
+
+	// add
+	later := now.Add(time.Hour)
+	fmt.Printf("%v", later.Minute())
+
+	return true
 }
