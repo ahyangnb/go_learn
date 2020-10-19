@@ -5,6 +5,7 @@ import (
 	"encoding/gob"
 	"encoding/json"
 	"fmt"
+	"time"
 )
 
 func foo() (int, string) {
@@ -213,4 +214,13 @@ func GobTest() {
 	fmt.Printf("%v\n", string(ret))
 	fmt.Println("====json(encode)===")
 	fmt.Printf("%#v\n", string(ret))
+}
+
+// 时间 https://www.liwenzhou.com/posts/Go/go_time/
+func TimeTest() {
+	now := time.Now()
+	fmt.Printf("current time:%v\n", now)
+
+	minute := now.Minute()
+	fmt.Printf("%v", minute)
 }

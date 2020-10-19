@@ -12,7 +12,7 @@ import (
 func main() {
 	//demo_digui.DemoDiGui()
 	//demo_error.ErrorHandle()
-	demo_type.GobTest()
+	demo_type.TimeTest()
 	//////第一个参数是接口名，第二个参数 http handle demo_func
 	//http.HandleFunc("/h1", h1)
 	//http.HandleFunc("/test", testHandle)
