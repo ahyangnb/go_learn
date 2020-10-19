@@ -123,12 +123,42 @@ func MyType() {
 
 // 结构体
 type Person struct {
-	age  int
-	name string
+	age   int
+	name  string
+	hobby []string
 }
 
 func StructDemo() {
 	var p Person
 	p.name = "q1"
 	p.age = 19
+	p.hobby = []string{"篮球", "乒乓球"}
+
+	fmt.Println(p.name)
+	fmt.Printf("%T", p)
+
+	// 匿名结构体
+	var s struct {
+		x string
+		y int
+	}
+	s.x = "嘿嘿黑"
+	s.y = 1
+	fmt.Printf("hahah::%T", s)
+
+	// 结构体初始化1
+	var p1 = new(Person)
+	p1.hobby = []string{"2", "嘿嘿嘿"}
+	p1.name = "q2"
+	p1.age = 18
+	fmt.Println(p1)
+
+	// 结构体初始化2(Key-value形式初始化)
+	var p2 = Person{
+		name:  "q3",
+		age:   10,
+		hobby: []string{"啦啦啦"},
+	}
+	fmt.Println(p2)
+
 }
