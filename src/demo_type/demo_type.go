@@ -1,6 +1,11 @@
 package demo_type
 
-import "fmt"
+import (
+	"bytes"
+	"encoding/gob"
+	"encoding/json"
+	"fmt"
+)
 
 func foo() (int, string) {
 	return 10, "ha"
@@ -161,4 +166,51 @@ func StructDemo() {
 	}
 	fmt.Println(p2)
 
+}
+
+type s struct {
+	data map[string]interface{}
+}
+
+// https://www.liwenzhou.com/posts/Go/gob_msgpack/
+func GobTest() {
+	var v1 = s{
+		data: make(map[string]interface{}, 8),
+	}
+	v1.data["a"] = 1
+
+	buf := new(bytes.Buffer)
+	enc := gob.NewEncoder(buf)
+	err := enc.Encode(v1.data)
+	if err != nil {
+		fmt.Println("gob encode failed, err:", err)
+		return
+	}
+	b := buf.Bytes()
+	fmt.Println(b)
+	var s2 = s{
+		data: make(map[string]interface{}, 8),
+	}
+	// decode
+	dec := gob.NewDecoder(bytes.NewBuffer(b))
+	err = dec.Decode(&s2.data)
+	if err != nil {
+		fmt.Println("gob decode failed, err", err)
+		return
+	}
+	fmt.Println("====s2.data===")
+	fmt.Println(s2.data)
+	for _, v := range s2.data {
+		fmt.Printf("value:%v, type:%T\n", v, v)
+	}
+
+	//json
+	ret, err := json.Marshal(s2.data)
+	if err != nil {
+		fmt.Println("marshal failed", err)
+	}
+	fmt.Println("====json===")
+	fmt.Printf("%v\n", string(ret))
+	fmt.Println("====json(encode)===")
+	fmt.Printf("%#v\n", string(ret))
 }

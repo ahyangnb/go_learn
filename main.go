@@ -3,15 +3,16 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"go_learn/src/demo_digui"
+	"go_learn/src/demo_type"
 	"go_learn/src/type_def"
 	"io"
 	"net/http"
 )
 
 func main() {
-	demo_digui.DemoDiGui()
+	//demo_digui.DemoDiGui()
 	//demo_error.ErrorHandle()
+	demo_type.GobTest()
 	//////第一个参数是接口名，第二个参数 http handle demo_func
 	//http.HandleFunc("/h1", h1)
 	//http.HandleFunc("/test", testHandle)
