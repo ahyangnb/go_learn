@@ -21,7 +21,8 @@ func main() {
 	fmt.Println("===================")
 	fmt.Println("welcome to my serve")
 	fmt.Println("===================")
-	host := "127.0.0.1:3389"
+	host := "0.0.0.0:3389"
+	//host := "127.0.0.1:3389"
 	//host := "81.71.139.64:3389"
 	err := http.ListenAndServe(host, nil)
 	if err != nil {
