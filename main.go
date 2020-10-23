@@ -21,13 +21,14 @@ func main() {
 	fmt.Println("===================")
 	fmt.Println("welcome to my serve")
 	fmt.Println("===================")
-	err := http.ListenAndServe("81.71.139.64:3389", nil)
+	host := "127.0.0.1:3389"
+	//host := "81.71.139.64:3389"
+	err := http.ListenAndServe(host, nil)
 	if err != nil {
 		fmt.Printf("%v", err)
-	} else {
-		fmt.Printf("result::成功")
 	}
-	//http.ListenAndServe("127.0.0.1:3389", nil)
+	fmt.Printf("listen tcp %v 成功\n", host)
+
 }
 
 func h1(rw http.ResponseWriter, req *http.Request) {
