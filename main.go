@@ -21,7 +21,8 @@ func main() {
 	fmt.Println("===================")
 	fmt.Println("welcome to my serve")
 	fmt.Println("===================")
-	http.ListenAndServe("127.0.0.1:3389", nil)
+	http.ListenAndServe("81.71.139.64:3389", nil)
+	//http.ListenAndServe("127.0.0.1:3389", nil)
 }
 
 func h1(rw http.ResponseWriter, req *http.Request) {
