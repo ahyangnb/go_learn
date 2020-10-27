@@ -106,3 +106,35 @@ func queryMultiRowDemo() {
 		fmt.Printf("id:%d name:%s age:%d\n", u.id, u.name, u.age)
 	}
 }
+
+// 更新数据
+func updateRowDemo() {
+	sqlStr := "update user set age=? where id = ?"
+	ret, err := db.Exec(sqlStr, 39, 3)
+	if err != nil {
+		fmt.Printf("update failed, err:%v\n", err)
+		return
+	}
+	n, err := ret.RowsAffected() // 操作影响的行数
+	if err != nil {
+		fmt.Printf("get RowsAffected failed, err:%v\n", err)
+		return
+	}
+	fmt.Printf("update success, affected rows:%d\n", n)
+}
+
+// 删除数据
+func deleteRowDemo() {
+	sqlStr := "delete from user where id = ?"
+	ret, err := db.Exec(sqlStr, 3)
+	if err != nil {
+		fmt.Printf("delete failed, err:%v\n", err)
+		return
+	}
+	n, err := ret.RowsAffected() // 操作影响的行数
+	if err != nil {
+		fmt.Printf("get RowsAffected failed, err:%v\n", err)
+		return
+	}
+	fmt.Printf("delete success, affected rows:%d\n", n)
+}
