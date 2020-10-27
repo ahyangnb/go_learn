@@ -3,14 +3,15 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"go_learn/src/server_text"
+	"go_learn/src/demo_sql"
 	"go_learn/src/type_def"
 	"io"
 	"net/http"
 )
 
 func main() {
-	server_text.TemplateText()
+	//server_text.TemplateText()
+	demo_sql.SqlTest()
 	//demo_digui.DemoDiGui()
 	//demo_error.ErrorHandle()
 	//demo_type.TimeTest()
