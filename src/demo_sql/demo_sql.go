@@ -35,9 +35,16 @@ func SqlTest() {
 		fmt.Printf("init db failed,err:%v\n", err)
 		return
 	}
+
+	insertRowDemo(newUser("test", 1))
 	queryRowDemo()
 	//queryMultiRowDemo()
 	//insertRowDemo()
+}
+
+// 构造
+func newUser(name string, age int) user {
+	return user{name: name, age: age}
 }
 
 type user struct {
@@ -47,9 +54,9 @@ type user struct {
 }
 
 // 插入数据
-func insertRowDemo() {
+func insertRowDemo(inUser user) {
 	sqlStr := "insert into user(name, age) values (?,?)"
-	ret, err := db.Exec(sqlStr, "王五", 38)
+	ret, err := db.Exec(sqlStr, inUser.name, inUser.age)
 	if err != nil {
 		fmt.Printf("insert failed, err:%v\n", err)
 		return
