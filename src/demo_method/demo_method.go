@@ -7,8 +7,8 @@ type Dog struct {
 }
 
 // 方法（只有Dog的类型能调用）
-func (d Dog) MethodTest(a Dog) {
-	fmt.Printf("%v:::旺", a.call)
+func (d Dog) MethodTest() {
+	fmt.Printf("%v:::旺", d.call)
 }
 
 // 构造
@@ -18,5 +18,5 @@ func newDog(call string) Dog {
 
 func DemoMethod() {
 	d1 := newDog("1号")
-	d1.MethodTest(d1)
+	d1.MethodTest()
 }
