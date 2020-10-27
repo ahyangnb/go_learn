@@ -18,7 +18,11 @@ func sayHello(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// 利用给定数据渲染模板，并将结果写入w
-	tmpl.Execute(w, "沙河小王子")
+	errTmpl := tmpl.Execute(w, "沙河小王子")
+	if errTmpl != nil {
+		fmt.Println("errTmpl failed, err:", err)
+		return
+	}
 }
 func main() {
 	http.HandleFunc("/", sayHello)
