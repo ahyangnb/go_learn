@@ -6,6 +6,8 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+// link::https://www.liwenzhou.com/posts/Go/go_mysql/
+
 // 定义一个全局对象db
 var db *sql.DB
 
