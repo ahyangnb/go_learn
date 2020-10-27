@@ -12,7 +12,7 @@ var db *sql.DB
 // 定义一个初始化数据库的函数
 func initDB() (err error) {
 	// DSN:Data Source Name
-	dsn := "root:Budengyu1.@tcp(192.168.1.1:3306)/sql_test?charset=utf8mb4&parseTime=True"
+	dsn := "root:Budengyu1.@tcp(localhost:3306)/sql_test?charset=utf8mb4&parseTime=True"
 	// 不会校验账号密码是否正确
 	// 注意！！！这里不要使用:=，我们是给全局变量赋值，然后在main函数中使用全局变量db
 	db, err = sql.Open("mysql", dsn)
@@ -21,6 +21,8 @@ func initDB() (err error) {
 	}
 	// 尝试与数据库建立连接（校验dsn是否正确）
 	err = db.Ping()
+	fmt.Printf("3\n")
+
 	if err != nil {
 		return err
 	}
