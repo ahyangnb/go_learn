@@ -68,7 +68,10 @@ func V8Example() {
 	}
 	fmt.Println("key", val)
 
-	_, err = rdb.Set(ctx, "key2", "我是Key2的值", 0).Result()
+	err2 := rdb.Set(ctx, "key2", "我是Key2的值", 0).Err()
+	if err2 != nil {
+		panic(err2)
+	}
 
 	val2, err := rdb.Get(ctx, "key2").Result()
 	if err == redis.Nil {
