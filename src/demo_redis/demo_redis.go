@@ -26,7 +26,7 @@ func initClient() (err error) {
 func DemoRedis() {
 	err := initClient()
 	if err != nil {
-		fmt.Print(err)
+		fmt.Printf("连接失败::%v", err)
 	} else {
 		fmt.Print("连接成功")
 	}
