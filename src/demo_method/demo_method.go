@@ -17,6 +17,11 @@ func newDog(call string) Dog {
 }
 
 func DemoMethod() {
+	//第一种方式
 	d1 := newDog("1号")
 	d1.MethodTest()
+
+	//第二种方式
+	d2 := Dog{call: "2号"}
+	fmt.Printf("%v:::旺", d2.call)
 }
