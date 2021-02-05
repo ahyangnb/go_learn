@@ -10,7 +10,7 @@ var (
 )
 
 type student struct {
-	id   int
+	id   int64
 	name string
 }
 
@@ -31,18 +31,50 @@ func main() {
 
 		switch choice {
 		case 1:
-			fmt.Println("查看所有学生")
-			break
+			viewAllStudent()
 		case 2:
-			fmt.Println("新增学生")
+			addStudent()
 		case 3:
-			fmt.Println("删除学生")
+			delStudent()
 		case 4:
 			os.Exit(1)
 		default:
 			fmt.Println("没")
-
 		}
 	}
 
+}
+
+func viewAllStudent() {
+	for k, v := range allStudent {
+		fmt.Printf("学号::%v,名字::%v\n", k, v.name)
+	}
+}
+
+func addStudent() {
+	var (
+		id   int64
+		name string
+	)
+
+	fmt.Print("清输入学号")
+	fmt.Scanln(&id)
+	fmt.Print("清输入名字")
+	fmt.Scanln(&name)
+
+	newStudent := &student{
+		id:   id,
+		name: name,
+	}
+
+	allStudent[id] = newStudent
+}
+
+func delStudent() {
+	var (
+		id int64
+	)
+	fmt.Print("清输入学号")
+	fmt.Scanln(&id)
+	delete(allStudent, id)
 }
