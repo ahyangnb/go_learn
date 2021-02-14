@@ -7,7 +7,7 @@ import (
 
 type testJson struct {
 	// json:"id"表示在json里key的名字，这里是写成小写开头的
-	Id   int64  `json:"id"`
+	Id   int64  `json:"id" db:"name" ini:"name"`
 	Name string `json:"name"`
 }
 
