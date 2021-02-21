@@ -31,6 +31,8 @@ func main() {
 	}
 	// 以string方式打印反序列化json
 	fmt.Printf("json反序列化:%v\n", testJson1)
+
+	// 1
 }
 
 func newTestJson(Id int64, Name string) testJson {
