@@ -56,6 +56,20 @@ type testA struct {
 	age  int
 }
 
+// 指针接收者示例
+type pointerType struct {
+	name string
+}
+
+// 接收的是指针值
+func (in *pointerType) test() {
+	fmt.Printf("调用指针接收者方式接口::%v\n", in.name)
+}
+
+type pointerInterFace interface {
+	test()
+}
+
 func main() {
 	var d dog
 	da(d)
@@ -67,6 +81,15 @@ func main() {
 	var r returnValueType
 	test(r)
 
+	// 另一个构造的示例
 	a := testA{"哈哈", 1}
 	fmt.Printf("name:%v,age:%v\n", a.name, a.age)
+
+	// 指针接受者调用接口示例
+	var pTest pointerInterFace
+	pType := pointerType{"one"}
+	// 把指针值给需要接受值的【没问题】
+	// 把值给需要接受指针值的【有问题】
+	pTest = &pType // 传的是指针值
+	pTest.test()
 }
