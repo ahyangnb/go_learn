@@ -93,3 +93,7 @@ func main() {
 	pTest = &pType // 传的是指针值
 	pTest.test()
 }
+
+// 空接口可以接收任何类型,
+//
+// interface{}或者写个接口不写任何方法=空接口
