@@ -38,17 +38,22 @@ type returnValueInterFace interface {
 }
 
 func (returnValueType) returnValue() (age int, name string) {
-	fmt.Print("returnValue")
+	fmt.Print("returnValue\n")
 	return 1, "哈哈"
 }
 
 func (returnValueType) paramValue(age int, name string) {
-	fmt.Printf("paramValue,,age:%v,name:%v", age, name)
+	fmt.Printf("paramValue,,age:%v,name:%v\n", age, name)
 }
 
 func test(r returnValueInterFace) {
 	r.paramValue(1, "a")
 	r.returnValue()
+}
+
+type testA struct {
+	name string
+	age  int
 }
 
 func main() {
@@ -61,4 +66,7 @@ func main() {
 	// 特殊
 	var r returnValueType
 	test(r)
+
+	a := testA{"哈哈", 1}
+	fmt.Printf("name:%v,age:%v\n", a.name, a.age)
 }
