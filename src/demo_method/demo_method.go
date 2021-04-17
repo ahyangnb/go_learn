@@ -6,7 +6,7 @@ type Dog struct {
 	call string
 }
 
-// 方法（只有Dog的类型能调用）
+// MethodTest 方法（只有Dog的类型能调用）
 func (d Dog) MethodTest() {
 	fmt.Printf("%v:::旺", d.call)
 }
