@@ -5,6 +5,8 @@ From the git repository of q1 learning go.
 test
 
 # mysql
+> 推荐使用版本：未知
+
 /usr/local/var/mysql
 
 ERROR 2002 (HY000): 
