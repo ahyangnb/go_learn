@@ -12,6 +12,10 @@ func main() {
 			"message": "pong",
 		})
 	})
+
+	// 设置模式
+	gin.SetMode(gin.ReleaseMode)
+
 	err := r.Run()
 	if err != nil {
 		return
