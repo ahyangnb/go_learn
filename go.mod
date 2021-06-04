@@ -3,7 +3,7 @@ module go_learn
 go 1.14
 
 require (
-	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/gin-gonic/gin v1.7.2
 	github.com/go-redis/redis/v8 v8.4.0
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
