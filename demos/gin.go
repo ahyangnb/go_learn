@@ -23,20 +23,22 @@ func main() {
 	// Set the Mode
 	gin.SetMode(gin.ReleaseMode)
 
-	r.POST("/ping", func(c *gin.Context) {
+	v1 := r.Group("/v1")
+
+	v1.POST("/ping", func(c *gin.Context) {
 		message := c.PostForm("message")
 		fmt.Printf("message::%v\n", message)
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",
 		})
 	})
-	r.POST("/loginForm", func(c *gin.Context) {
+	v1.POST("/loginForm", func(c *gin.Context) {
 
 		user := c.PostForm("user")
 		if user == "" {
 			e := ErrorBody{
 				Msg:  "Please input user",
-				Code: 401,
+				Code: 1,
 			}
 			c.JSON(http.StatusOK, e)
 			return
@@ -56,7 +58,6 @@ func main() {
 
 		c.JSON(http.StatusOK, gin.H{"status": "you are logged in"})
 	})
-
 	err := r.Run()
 	if err != nil {
 		return
