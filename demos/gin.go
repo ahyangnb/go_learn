@@ -12,6 +12,11 @@ type Login struct {
 	Password string `form:"password" json:"password" xml:"password" binding:"required"`
 }
 
+type ErrorBody struct {
+	Code int
+	Msg  string
+}
+
 func main() {
 	r := gin.Default()
 
@@ -26,6 +31,17 @@ func main() {
 		})
 	})
 	r.POST("/loginForm", func(c *gin.Context) {
+
+		user := c.PostForm("user")
+		if user == "" {
+			e := ErrorBody{
+				Msg:  "Please input user",
+				Code: 401,
+			}
+			c.JSON(http.StatusOK, e)
+			return
+		}
+
 		var form Login
 		// This will infer what binder to use depending on the content-type header.
 		if err := c.ShouldBind(&form); err != nil {
