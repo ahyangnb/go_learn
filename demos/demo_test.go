@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 // Tips：
 // 文件命名一定要`name_test`，否则无法识别为单元测试文件。
