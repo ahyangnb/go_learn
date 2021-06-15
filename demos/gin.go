@@ -17,6 +17,16 @@ type ErrorBody struct {
 	Msg  string
 }
 
+func Logger() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		token := c.GetHeader("Authorization")
+		if token == "" {
+			fmt.Printf("not user：%v\n", token)
+		}
+		fmt.Printf("拿到token：%v\n", token)
+	}
+}
+
 func main() {
 	r := gin.Default()
 
@@ -24,8 +34,10 @@ func main() {
 	gin.SetMode(gin.ReleaseMode)
 
 	v1 := r.Group("/v1")
+	userR := v1.Group("/user")
+	userR.Use(Logger())
 
-	v1.POST("/ping", func(c *gin.Context) {
+	userR.POST("/ping", func(c *gin.Context) {
 		message := c.PostForm("message")
 		fmt.Printf("message::%v\n", message)
 		c.JSON(http.StatusOK, gin.H{
